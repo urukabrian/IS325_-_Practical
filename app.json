@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "testreactnativeapp",
-    "slug": "testreactnativeapp",
+    "name": "PNG_Census_2024",
+    "slug": "PNG_Census_2024",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -12,6 +12,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    
     "ios": {
       "supportsTablet": true
     },
