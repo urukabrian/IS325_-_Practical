@@ -1,50 +1,61 @@
+import React from "react";
 import {
-  Image,
   StyleSheet,
-  Platform,
   TouchableOpacity,
   Text,
   View,
-  Button,
 } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
 import { useNavigation } from "@react-navigation/native";
-import AuthComponent from "@/components/auth/AuthComponent";
-import React from "react";
 
+// Assuming `HouseholdDetails` and `Address` components are in the `screens` folder
 export default function HomeScreen() {
   const navigation = useNavigation();
 
-  const handleDashboard = () => {
-    // code to handle the browse action
+  const navigateToDashboard = () => {
     (navigation as any).navigate("dashboard");
   };
 
-  const handleSignIn = () => {
+  const navigateToSignIn = () => {
     (navigation as any).navigate("auth");
   };
 
-  const testRoute = () => {
-    (navigation as any).navigate("test");
+  const navigateToHouseholdDetails = () => {
+    (navigation as any).navigate("screens/household");
+  };
+
+  const navigateToAddressDetails = () => {
+    (navigation as any).navigate("screens/address");
+  };
+
+  const navigateToExplore = () => {
+    (navigation as any).navigate("explore");
   };
 
   return (
     <View style={styles.container}>
-      {/* Two Text Messages */}
       <Text style={styles.headerText}>Civil Registry Portal</Text>
       <Text style={styles.subText}>
         Explore and manage your content with ease.
       </Text>
 
-      <TouchableOpacity style={styles.button} onPress={() => handleDashboard()}>
+      <TouchableOpacity style={styles.button} onPress={navigateToDashboard}>
         <Text style={styles.buttonText}>Data Entry</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.buttonSecondary}
-        onPress={() => handleSignIn()}
-      >
+      <TouchableOpacity style={styles.buttonSecondary} onPress={navigateToSignIn}>
         <Text style={styles.buttonText}>Sign In</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.buttonSecondary} onPress={navigateToHouseholdDetails}>
+        <Text style={styles.buttonText}>Household Details</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.buttonSecondary} onPress={navigateToAddressDetails}>
+        <Text style={styles.buttonText}>Address Details</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.buttonSecondary} onPress={navigateToExplore}>
+        <Text style={styles.buttonText}>Explore</Text>
       </TouchableOpacity>
     </View>
   );
@@ -57,7 +68,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 20,
-    backgroundColor: "#f5f5f5", // Light background for contrast against buttons
+    backgroundColor: "#f5f5f5",
   },
   headerText: {
     fontSize: 30,
@@ -70,10 +81,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#666",
     textAlign: "center",
-    marginBottom: 40, // Space between text and buttons
+    marginBottom: 40,
   },
   button: {
-    backgroundColor: "#4CAF50", // Modern green color
+    backgroundColor: "#4CAF50",
     borderRadius: 12,
     paddingVertical: 15,
     paddingHorizontal: 50,
@@ -82,10 +93,10 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.3,
     shadowRadius: 4,
-    elevation: 5, // Elevation for Android
+    elevation: 5,
   },
   buttonSecondary: {
-    backgroundColor: "#2196F3", // Stylish blue for Sign In/Sign Up buttons
+    backgroundColor: "#2196F3",
     borderRadius: 12,
     paddingVertical: 15,
     paddingHorizontal: 50,
@@ -94,7 +105,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.3,
     shadowRadius: 4,
-    elevation: 5, // Elevation for Android
+    elevation: 5,
   },
   buttonText: {
     color: "#fff",
